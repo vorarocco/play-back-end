@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose")
 const PORT = 8800
 const dotenv = require("dotenv")
-const authRoute = require('./routes/auth')
+const authRoute = require('./controllers/auth')
 
 
 dotenv.config()
@@ -28,6 +28,6 @@ app.use(express.json())
 
 app.use("/auth", authRoute)
 
-app.listen(8800,() =>{
+app.listen(PORT,() =>{
     console.log(`Port ${PORT} backend server is running`)
 })
