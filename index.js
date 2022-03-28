@@ -6,6 +6,7 @@ const dotenv = require("dotenv")
 const authRoute = require('./controllers/auth')
 const usersRoute = require('./controllers/users')
 const moviesRoute = require('./controllers/movies')
+const listsRoute = require('./controllers/lists')
 
 
 dotenv.config()
@@ -31,6 +32,7 @@ app.use(express.json())
 app.use("/auth", authRoute)
 app.use("/users", usersRoute)
 app.use("/movies", moviesRoute)
+app.use("/lists", listsRoute)
 
 app.listen(PORT,() =>{
     console.log(`Port ${PORT} backend server is running`)
