@@ -5,6 +5,7 @@ const PORT = 8800
 const dotenv = require("dotenv")
 const authRoute = require('./controllers/auth')
 const usersRoute = require('./controllers/users')
+const moviesRoute = require('./controllers/movies')
 
 
 dotenv.config()
@@ -29,6 +30,7 @@ app.use(express.json())
 
 app.use("/auth", authRoute)
 app.use("/users", usersRoute)
+app.use("/movies", moviesRoute)
 
 app.listen(PORT,() =>{
     console.log(`Port ${PORT} backend server is running`)
