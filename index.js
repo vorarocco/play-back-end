@@ -7,6 +7,7 @@ const authRoute = require('./controllers/auth')
 const usersRoute = require('./controllers/users')
 const moviesRoute = require('./controllers/movies')
 const listsRoute = require('./controllers/lists')
+const cors = require('cors')
 
 
 dotenv.config()
@@ -26,7 +27,7 @@ mongoose.connect(process.env.MONGO_URL,{
 //   await mongoose.connect(process.env.MONGO_URL);
 //   console.log("DB connection successfull!")
 // } 
-
+app.use(cors())
 app.use(express.json())
 
 app.use("/auth", authRoute)

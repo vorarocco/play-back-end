@@ -56,18 +56,6 @@ router.delete("/:id", verify, async(req,res)=>{
     }
 })
 
-// EVERYONE CAN GET MOVIE
-// GET
-router.get("/find/:id", verify, async(req,res)=>{
-    try{
-        const movie = await Movie.findById(req.params.id)
-        res.status(200).json(movie)
-
-    }catch(err){
-        res.status(500).json(err)
-    }
-})
-
 
 // GET RANDOM MOVIE 
 router.get("/random", verify, async(req,res)=>{
@@ -85,6 +73,17 @@ router.get("/random", verify, async(req,res)=>{
                 {$sample: {size: 1}}
             ])
         }
+        res.status(200).json(movie)
+    }catch(err){
+        res.status(500).json(err)
+    }
+})
+
+// EVERYONE CAN GET MOVIE
+// GET
+router.get("/find/:id", verify, async(req,res)=>{
+    try{
+        const movie = await Movie.findById(req.params.id)
         res.status(200).json(movie)
     }catch(err){
         res.status(500).json(err)

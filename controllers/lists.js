@@ -9,6 +9,7 @@ const verify = require('../verifyToken')
 
 // CREATE
 router.post("/", verify, async(req,res)=>{
+    console.log(req.body)
     if(req.user.isAdmin){
         const newList = new List(req.body) 
         try{
@@ -54,7 +55,7 @@ router.get("/", verify, async(req,res)=>{
             }else{
                 list = await List.aggregate([
                     {$sample: {size: 10}},
-                    {$match: {type: typeQuery}}
+                    {$match: {type: typeQuery}},
                 ])
             }
         }else{
