@@ -49,4 +49,7 @@ router.post("/login", async (req,res)=>{
   }
 })
 
+// LOGOUT
+router.post
+
 module.exports =router
