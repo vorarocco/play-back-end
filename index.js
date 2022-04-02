@@ -1,8 +1,7 @@
+const dotenv = require("dotenv")
 const express = require("express")
 const app = express();
 const mongoose = require("mongoose")
-const PORT = process.env.PORT
-const dotenv = require("dotenv")
 const authRoute = require('./controllers/auth')
 const usersRoute = require('./controllers/users')
 const moviesRoute = require('./controllers/movies')
@@ -11,6 +10,7 @@ const cors = require('cors')
 
 
 dotenv.config()
+const PORT = process.env.PORT
 
 mongoose.connect(process.env.MONGO_URL,{
     useNewUrlParser: true,
